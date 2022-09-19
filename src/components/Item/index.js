@@ -6,13 +6,13 @@ import { CartContext } from "../../context/CartContext";
 const Item = (props) => {
 
     const [contador, setContador] = useState(1);
-    
-    const {isInCart, addItem} = useContext(CartContext)
+
+    const { isInCart, addItem } = useContext(CartContext)
 
 
-    const onAdd = () =>{
+    const onAdd = () => {
         isInCart(props.producto.id)
-        addItem(props.producto,contador)
+        addItem(props.producto, contador)
     }
     if (props.detail === false) {
         return (

@@ -12,20 +12,20 @@ const MyProvider = ({ children }) => {
         return carrito.some(producto => producto.id === id)
     }
 
-    const addItem = (producto,cantidad) => {
+    const addItem = (producto, cantidad) => {
         const nuevoProducto = {
             ...producto,
             cantidad
         }
-        if(isInCart(nuevoProducto.id)){
+        if (isInCart(nuevoProducto.id)) {
             const findProducto = carrito.find(producto => producto.id === nuevoProducto.id)
             const productoIndex = carrito.indexOf(findProducto)
             const auxArray = [...carrito]
             auxArray[productoIndex].cantidad += cantidad
             setCarrito(auxArray)
-        }else{
+        } else {
             setCarrito([...carrito, nuevoProducto])
-            
+
         }
     }
 
@@ -38,15 +38,15 @@ const MyProvider = ({ children }) => {
     }
 
     const getItemQty = () => {
-        return carrito.reduce((acc,producto) => acc += producto.cantidad, 0)
+        return carrito.reduce((acc, producto) => acc += producto.cantidad, 0)
     }
 
     const getItemPrice = () => {
-        return carrito.reduce((acc,producto) => acc += producto.cantidad * producto.precio, 0)
+        return carrito.reduce((acc, producto) => acc += producto.cantidad * producto.precio, 0)
     }
 
 
-    return <Provider value={{carrito,isInCart,addItem,emptyCart,deleteItem,getItemQty,getItemPrice}}>{children}</Provider>
+    return <Provider value={{ carrito, isInCart, addItem, emptyCart, deleteItem, getItemQty, getItemPrice }}>{children}</Provider>
 }
 
 export default MyProvider

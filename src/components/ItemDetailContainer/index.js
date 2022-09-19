@@ -12,21 +12,21 @@ const ItemDetailContainer = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    
-    const productosCollection = collection(db,"productos")
+
+    const productosCollection = collection(db, "productos")
     const referencia = doc(productosCollection, id)
     const consulta = getDoc(referencia)
-    
+
     consulta
-    .then((res) => {
-      const producto = (res.data())
-      producto.id = id
-      setProductoDetail(producto)
-      setLoading(true)
-    })
-    .catch((error) =>
-      console.log(error)
-    )
+      .then((res) => {
+        const producto = (res.data())
+        producto.id = id
+        setProductoDetail(producto)
+        setLoading(true)
+      })
+      .catch((error) =>
+        console.log(error)
+      )
   }, [id])
 
   return (

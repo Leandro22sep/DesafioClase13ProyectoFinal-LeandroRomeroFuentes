@@ -16,10 +16,10 @@ const Checkout = () => {
     })
 
     const { carrito, getItemPrice, emptyCart } = useContext(CartContext)
-    
+
     const navigate = useNavigate()
 
-    const handlerChangeInput = (e) =>{
+    const handlerChangeInput = (e) => {
         setCostumer({
             ...costumer,
             [e.target.name]: e.target.value
@@ -31,7 +31,7 @@ const Checkout = () => {
 
         const ordenCompra = {
             productos: carrito,
-            comprador: {...costumer},
+            comprador: { ...costumer },
             date: serverTimestamp(),
             precio: getItemPrice(),
         }
@@ -39,22 +39,22 @@ const Checkout = () => {
         const ordersCollection = collection(db, "orders")
         const consulta = addDoc(ordersCollection, ordenCompra)
         consulta
-        .then(res => {
-            navigate("/")
-            toast.success("Compra Realizada con Éxito!")
-        })
-        .catch(err => {
-            toast.error("Error al cargar los productos")
-        })        
+            .then(res => {
+                navigate("/")
+                toast.success("Compra Realizada con Éxito!")
+            })
+            .catch(err => {
+                toast.error("Error al cargar los productos")
+            })
         emptyCart();
     }
 
-    if(carrito.length === 0){
+    if (carrito.length === 0) {
         setTimeout(() => {
             navigate("/")
-        },3000)
+        }, 3000)
 
-        return(
+        return (
             <>
                 <h2>Tu carrito esta vacio</h2>
                 <h3>Redirigiendo al Home...</h3>
@@ -66,11 +66,11 @@ const Checkout = () => {
         <div>
             <h2>Complete sus datos</h2>
             <form onSubmit={handlerSubmit}>
-                <input placeholder='Nombre' name='nombre' value={costumer.nombre} onChange={handlerChangeInput}/>
-                <input placeholder='Apellido' name='apellido' value={costumer.apellido} onChange={handlerChangeInput}/>
-                <input placeholder='Correo Electronico' name='email' value={costumer.email} onChange={handlerChangeInput}/>
+                <input placeholder='Nombre' name='nombre' value={costumer.nombre} onChange={handlerChangeInput} />
+                <input placeholder='Apellido' name='apellido' value={costumer.apellido} onChange={handlerChangeInput} />
+                <input placeholder='Correo Electronico' name='email' value={costumer.email} onChange={handlerChangeInput} />
                 <input placeholder='Telefono' name='telefono' value={costumer.telefono} onChange={handlerChangeInput} />
-                <input placeholder='Domicilio' name='domicilio' value={costumer.domicilio} onChange={handlerChangeInput}/>
+                <input placeholder='Domicilio' name='domicilio' value={costumer.domicilio} onChange={handlerChangeInput} />
                 <button type='submit' className='boton-grande'>Confirmar Compra</button>
             </form>
         </div>

@@ -26,7 +26,7 @@ const Cart = () => {
           <h3>Precio Total: ${getItemPrice()}</h3>
         </div>
         <div>
-          <button onClick={() => {emptyCart()}} className="boton-grande">Vaciar Carrito</button>
+          <button onClick={() => { emptyCart() }} className="boton-grande">Vaciar Carrito</button>
         </div>
         <div>
           <Link to={"/checkout"}><button className='boton-grande'>Realizar Compra</button></Link>
