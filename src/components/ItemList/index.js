@@ -54,25 +54,3 @@ return (
 
   
 export default ItemList
-//else if(props.categoria === "hoodies"){
-//   const arrayFiltrado = props.listProductos.filter(producto => producto.categoria === "hoodies");
-//   return (
-//     <section className='items'>
-//       {arrayFiltrado.map(producto => <Item key={producto.id} producto={producto} detail={false}/>)}
-//     </section>
-//   )
-// }else if(props.categoria === "camperas"){
-//   const arrayFiltrado = props.listProductos.filter(producto => producto.categoria === "camperas");
-//   return (
-//     <section className='items'>
-//       {arrayFiltrado.map(producto => <Item key={producto.id} producto={producto} detail={false}/>)}
-//     </section>
-//   )
-// }else if(props.categoria === "remeras"){
-//   const arrayFiltrado = props.listProductos.filter(producto => producto.categoria === "remeras");
-//   return (
-//     <section className='items'>
-//       {arrayFiltrado.map(producto => <Item key={producto.id} producto={producto} detail={false}/>)}
-//     </section>
-//   )
-// }

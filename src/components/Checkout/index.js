@@ -36,18 +36,15 @@ const Checkout = () => {
             precio: getItemPrice(),
         }
 
-        console.log(ordenCompra)//ELIMINARRRRRRRRRRRRRRRRRR
-
         const ordersCollection = collection(db, "orders")
         const consulta = addDoc(ordersCollection, ordenCompra)
         consulta
-        .then((res) => {
-            console.log(res)
+        .then(res => {
             navigate("/")
             toast.success("Compra Realizada con Éxito!")
         })
-        .catch(error => {
-            console.log(error)
+        .catch(err => {
+            toast.error("Error al cargar los productos")
         })        
         emptyCart();
     }

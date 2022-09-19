@@ -34,24 +34,21 @@ const NavBar = (props) => {
     
     if(props.type === "header"){
         return(
-            <>
                 <nav className="nav">
                     {navLinks.map((element, index) => {
                         return <Link to={`/categoria/${element}`} key={index}>{element}</Link>
                     })}
                     <CartWidget></CartWidget>
                 </nav>
-            </>
         )
     }else if(props.type === "footer"){
         return(
-            <>
                 <nav className="nav">
                 {navLinks.map((element, index) => {
                         return <Link to={`/categoria/${element}`} key={index}>{element}</Link>
                     })}
                 </nav>
-            </>
+           
         )
     }
     
